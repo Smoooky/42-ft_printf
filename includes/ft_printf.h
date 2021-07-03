@@ -3,8 +3,8 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 
-# ifndef CtoI
-#  define CtoI(c) ((c) - '0')
+# ifndef CTOI
+#  define CTOI(c) ((c) - '0')
 # endif
 
 # ifndef MAXBUF
@@ -19,11 +19,9 @@ typedef struct s_print
 	int		length;
 	int		prec;
 	int		ladjust;
-	int		altfmt; //need to correct
-	int		tranc; //DO WE NEED THIS?
+	int		altfmt;
 	int		base;
 	int		capitals;
-	int 	ret;
 }    t_print;
 
 int			ft_printf(const char *format, ...);
