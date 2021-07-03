@@ -78,7 +78,7 @@ const char	*ft_len(t_print **tab, register const char *format, va_list *argp)
 	{
 		while (ft_isdigit(c))
 		{
-			(*tab)->length = 10 * (*tab)->length + CTOI(c);
+			(*tab)->length = 10 * (*tab)->length + (c - '0');
 			c = *++format;
 		}
 	}
@@ -111,7 +111,7 @@ const char	*ft_prec(t_print **tab, register const char *format, va_list *argp)
 		{
 			while (ft_isdigit(c))
 			{
-				(*tab)->prec = 10 * (*tab)->prec + CTOI(c);
+				(*tab)->prec = 10 * (*tab)->prec + (c - '0');
 				c = *++format;
 			}
 		}

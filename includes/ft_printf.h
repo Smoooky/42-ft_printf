@@ -3,14 +3,6 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 
-# ifndef CTOI
-#  define CTOI(c) ((c) - '0')
-# endif
-
-# ifndef MAXBUF
-# 	define MAXBUF (sizeof(long int) * 8)
-# endif
-
 typedef struct s_print
 {
 	va_list	arg;
@@ -22,12 +14,14 @@ typedef struct s_print
 	int		altfmt;
 	int		base;
 	int		capitals;
-}    t_print;
+}	t_print;
 
 int			ft_printf(const char *format, ...);
 void		ft_initialise_tab(t_print *tab);
-int			ft_eval_format(t_print *tab, register const char *format, va_list *argp);
-int			ft_conv_proc(t_print *tab, register const char *format, va_list *argp);
+int			ft_eval_format(t_print *tab, register const char *format,
+				va_list *argp);
+int			ft_conv_proc(t_print *tab, register const char *format,
+				va_list *argp);
 int			ft_printf_str(t_print *tab, register char *p);
 int			ft_printf_signed(t_print *tab, va_list *argp);
 int			ft_printf_usigned(t_print *tab, va_list *argp);

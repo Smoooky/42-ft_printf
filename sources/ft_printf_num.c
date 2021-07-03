@@ -26,7 +26,7 @@ int	ft_printf_usigned(t_print *tab, va_list *argp)
 
 int	ft_printf_num(t_print *tab, unsigned long u)
 {
-	char			buf[MAXBUF];
+	char			buf[(sizeof(long int)*8)];
 	register char	*p;
 	static char		digits[] = "0123456789abcdef0123456789ABCDEF";
 	int				ret;
@@ -34,7 +34,7 @@ int	ft_printf_num(t_print *tab, unsigned long u)
 	if (u == 0 && tab->prec == 0)
 		return (ft_print_zero(tab));
 	ret = 0;
-	p = &buf[MAXBUF - 1];
+	p = &buf[(sizeof(long int) * 8) - 1];
 	*p-- = digits[(u % tab->base) + tab->capitals];
 	u /= tab->base;
 	while (u != 0)
@@ -42,9 +42,9 @@ int	ft_printf_num(t_print *tab, unsigned long u)
 		*p-- = digits[(u % tab->base) + tab->capitals];
 		u /= tab->base;
 	}
-	tab = ft_len_prec_count(tab, &buf[MAXBUF - 1] - p);
+	tab = ft_len_prec_count(tab, &buf[(sizeof(long int) * 8) - 1] - p);
 	ret += ft_printf_before_num(tab);
-	while (++p != &buf[MAXBUF])
+	while (++p != &buf[(sizeof(long int) * 8)])
 	{
 		ft_putchar_fd(*p, 1);
 		ret++;
