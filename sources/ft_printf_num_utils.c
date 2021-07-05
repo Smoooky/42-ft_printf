@@ -24,7 +24,7 @@ int	ft_printf_before_num(t_print *tab)
 		write(1, "0x", 2);
 		ret += 2;
 	}
-	if (tab->padc == '0')
+	if (tab->ladjust == -1 && tab->padc == '0')
 	{
 		while (--tab->length >= 0)
 		{

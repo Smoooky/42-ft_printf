@@ -20,7 +20,11 @@ int	ft_printf_usigned(t_print *tab, va_list *argp)
 {
 	unsigned long	u;
 
-	u = va_arg(*argp, unsigned long);
+	u = 0;
+	if (tab->altfmt == 1)
+		u = va_arg(*argp, unsigned long);
+	else
+		u = (unsigned long)va_arg(*argp, unsigned int);
 	return (ft_printf_num(tab, u));
 }
 

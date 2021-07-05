@@ -15,13 +15,13 @@ int	ft_conv_proc(t_print *tab, register const char *format, va_list *argp)
 		st[1] = 0;
 		return (ft_printf_str(tab, st));
 	}
-	else if (c == '%')
+	if (c == '%')
 		return (ft_printf_str(tab, "%"));
-	else if (c == 's')
+	if (c == 's')
 		return (ft_str_conv(tab, argp));
 	if (c == 'd' || c == 'i')
 		return (ft_printf_signed(tab, argp));
-	else if (c == 'u' || c == 'p' || c == 'x' || c == 'X')
+	if (c == 'u' || c == 'p' || c == 'x' || c == 'X')
 		return (ft_num_conv(tab, c, argp));
 	return (0);
 }
